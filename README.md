@@ -5,6 +5,9 @@ This is a Python application that allows you to load a PDF and ask questions abo
 
 ## Images of Proof of Concept
 
+![logo](https://github.com/KalyanMurapaka45/DocGenius-Revolutionizing-PDFs-with-AI/blob/main/Outputs/Screenshot%202023-05-15%20212935.png)
+
+![logo](https://github.com/KalyanMurapaka45/DocGenius-Revolutionizing-PDFs-with-AI/blob/main/Outputs/Screenshot%202023-05-15%20213027.png)
 
 ## Requirement Libraries
 
