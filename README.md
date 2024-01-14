@@ -58,7 +58,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 5. Open a Pull Request
 
-# Licnese
+# License
 
 Distributed under the GNU General Public License v3.0. See ```LICENSE.txt``` for more information.
 
