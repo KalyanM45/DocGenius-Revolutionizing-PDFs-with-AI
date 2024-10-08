@@ -1,6 +1,3 @@
-from uuid import UUID
-
-
 class GlobalKVStore:
     """
     Local storage of all temporary info

@@ -1,8 +1,8 @@
 import uuid
 from flask import Flask, request, jsonify
+from pypdf import PdfReader
 from .kvstore import GlobalKVStore
 from .agent import get_agent
-from pypdf import PdfReader
 
 app = Flask(__name__)
 kvstore = GlobalKVStore()
@@ -65,7 +65,7 @@ def ask_question():
         file_path = kvstore.get_file_path(fuid)
         reader = PdfReader(file_path)
         docs = [page.extract_text() for page in reader.pages]
-        agent.augmented_with(docs)
+        agent.augmented_with(docs, file_path)
 
     response = agent.ask(question)
     return jsonify({"ai": response, "sid": session_id}), 200
