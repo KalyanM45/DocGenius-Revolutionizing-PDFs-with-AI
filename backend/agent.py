@@ -69,10 +69,15 @@ class RagAgent:
 agents_pool: dict[str, RagAgent] = {}
 
 
-def get_agent(session_id: str | None) -> Tuple[RagAgent, str]:
+def get_agent(session_id: str | None = None) -> Tuple[RagAgent, str]:
     if session_id is None:
         session_id = uuid.uuid1()
         agents_pool[session_id] = RagAgent()
     elif session_id is not None and agents_pool[session_id] is None:
         raise RuntimeError("Invalid session_id")
     return agents_pool[session_id], session_id
+
+# unit test
+if __name__ == "__main__":
+    agent, sid = get_agent()
+    print(agent.ask("What is 2 + 2 = ?"))

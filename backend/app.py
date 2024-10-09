@@ -7,6 +7,9 @@ from .agent import get_agent
 app = Flask(__name__)
 kvstore = GlobalKVStore()
 
+@app.route("/api/ping", methods=["GET"])
+def ping():
+    return jsonify({"ping": "pong"})
 
 @app.route("/api/upload/pdf", methods=["POST"])
 def upload_pdf():
@@ -31,7 +34,7 @@ def upload_pdf():
     return jsonify({"fuid": str(uid)}), 200
 
 
-@app.route("api/ask", methods=["POST"])
+@app.route("/api/ask", methods=["POST"])
 def ask_question():
     """
     Ask question based on the pdf or not.
