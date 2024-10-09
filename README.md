@@ -11,7 +11,7 @@ This is a fork of [DocGenius-Revolutionizing-PDFs-with-AI](https://github.com/Ka
 ## Installation
 
 After cloning the repository, install the required libraries:
- 
+
 ```sh
 pip install -r requirements.txt
 ```
