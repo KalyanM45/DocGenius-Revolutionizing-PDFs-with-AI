@@ -8,7 +8,7 @@ This is a fork of [DocGenius-Revolutionizing-PDFs-with-AI](https://github.com/Ka
 
 ![example](./examples/image.png)
 
-##  Installation 
+## Installation
 
 After cloning the repository, install the required libraries:
  
@@ -17,6 +17,12 @@ pip install -r requirements.txt
 ```
 
 And makesure you config your openai api key or base url correctly (in .env file or environment variables).
+
+To lauch the frontend, install vite for development.
+
+```plaintext
+npm install -D
+```
 
 ## Usage
 
