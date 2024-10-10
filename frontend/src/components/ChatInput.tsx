@@ -20,12 +20,16 @@ const SendButton = ({ onClick }: SendButtonProps) => {
     )
 }
 
-const ChatInput = () => {
+interface ChatInputProps {
+    onSendMessage: (message: string) => void;
+}
+
+const ChatInput = ({ onSendMessage }: ChatInputProps) => {
     const [text, setText] = useState('');
 
-    const onSend = () => {
+    const handleSend = () => {
         if (text.trim()) {
-            alert(text);
+            onSendMessage(text);
             setText("");
         }
     }
@@ -33,10 +37,11 @@ const ChatInput = () => {
     return (
         <Stack
             direction="row"
-            maxWidth="800px"
+            maxWidth="1200px"
+            width="100%"
             spacing={1}
             divider={<Divider orientation="vertical" flexItem />}
-            sx={{ margin: "0 auto", alignItems: "center" }}
+            sx={{ p: 2, alignItems: "center" }}
         >
             <TextField
                 label="question"
@@ -48,11 +53,11 @@ const ChatInput = () => {
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault();
-                        onSend();
+                        handleSend();
                     }
                 }}
             />
-            <SendButton onClick={onSend} />
+            <SendButton onClick={handleSend} />
         </Stack>
     )
 }

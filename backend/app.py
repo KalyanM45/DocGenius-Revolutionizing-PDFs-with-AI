@@ -7,9 +7,11 @@ from .agent import get_agent
 app = Flask(__name__)
 kvstore = GlobalKVStore()
 
+
 @app.route("/api/ping", methods=["GET"])
 def ping():
     return jsonify({"ping": "pong"})
+
 
 @app.route("/api/upload/pdf", methods=["POST"])
 def upload_pdf():
@@ -48,7 +50,7 @@ def ask_question():
         - sid (str): the session id. If not given, will create a new one and respond with it.
 
     Response:
-        - ai (str): ai message
+        - ai_message (str): ai message
         - sid (str) : session id given or generated
     """
     # TODO: use stream api
@@ -71,4 +73,4 @@ def ask_question():
         agent.augmented_with(docs, file_path)
 
     response = agent.ask(question)
-    return jsonify({"ai": response, "sid": session_id}), 200
+    return jsonify({"ai_message": response, "sid": session_id}), 200
