@@ -37,20 +37,13 @@ const ChatWindow = () => {
 
     return (
         <Container
-            maxWidth="lg"
+            maxWidth="md"
             sx={{
                 height: "100vh",
                 display: 'flex',
             }}>
             <Stack sx={{ flexGrow: 1 }}>
                 <MessageDisplay messages={messages} />
-                {/* <Box sx={{ flexGrow: 1, overflowY: 'auto' }}>
-                    {messages.map((message, index) => (
-                        <Typography key={index} variant="body1" sx={{ marginBottom: 1 }}>
-                            {message}
-                        </Typography>
-                    ))}
-                </Box> */}
                 <ChatInput onSendMessage={handleSendMessage} />
             </Stack>
         </Container>
