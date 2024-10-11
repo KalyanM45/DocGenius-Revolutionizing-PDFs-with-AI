@@ -1,6 +1,0 @@
-{
-    "api/ask": {
-        "sid": "fake-sid",
-        "ai_message": "mock ai message"
-    }
-}

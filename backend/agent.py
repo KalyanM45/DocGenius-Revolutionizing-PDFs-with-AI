@@ -71,9 +71,9 @@ agents_pool: dict[str, RagAgent] = {}
 
 def get_agent(session_id: str | None = None) -> Tuple[RagAgent, str]:
     if session_id is None:
-        session_id = uuid.uuid1()
+        session_id = str(uuid.uuid1())
         agents_pool[session_id] = RagAgent()
-    elif session_id is not None and agents_pool[session_id] is None:
+    elif session_id is not None and agents_pool.get(session_id) is None:
         raise RuntimeError("Invalid session_id")
     return agents_pool[session_id], session_id
 

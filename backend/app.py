@@ -1,10 +1,13 @@
 import uuid
+import logging
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from pypdf import PdfReader
 from .kvstore import GlobalKVStore
 from .agent import get_agent
 
 app = Flask(__name__)
+CORS(app)
 kvstore = GlobalKVStore()
 
 
@@ -38,6 +41,7 @@ def upload_pdf():
 
 @app.route("/api/ask", methods=["POST"])
 def ask_question():
+    # TODO: use stream api
     """
     Ask question based on the pdf or not.
 
@@ -53,7 +57,6 @@ def ask_question():
         - ai_message (str): ai message
         - sid (str) : session id given or generated
     """
-    # TODO: use stream api
     data = request.get_json()
     if not data:
         return jsonify({"error": "no dataprovided"}), 400
@@ -64,7 +67,6 @@ def ask_question():
 
     session_id: str | None = data.get("sid")
     agent, session_id = get_agent(session_id)
-
     fuid: str | None = data.get("fuid")
     if fuid is not None:
         file_path = kvstore.get_file_path(fuid)
